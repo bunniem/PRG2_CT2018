@@ -36,9 +36,18 @@ namespace PRG2_CT2018
             employeeList.Add(employee1);
             employeeList.Add(employee2);
             employeeList.Add(employee3);
+        }
 
-            // Increase basic pay by 10%
-            IncreaseBasicPay();
+        public void IncreaseBasicPay()
+        {
+            foreach (Employee emp in employeeList)
+            {
+                if (emp is FullTimeEmployee)
+                {
+                    FullTimeEmployee e = (FullTimeEmployee)emp;
+                    e.BasicPay = e.BasicPay * 1.1;
+                }
+            }
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
@@ -61,16 +70,10 @@ namespace PRG2_CT2018
             }
         }
 
-        public void IncreaseBasicPay()
+        private void IncreaseBtn_Click(object sender, RoutedEventArgs e)
         {
-            foreach(Employee emp in employeeList)
-            {
-                if(emp is FullTimeEmployee)
-                {
-                        FullTimeEmployee e = (FullTimeEmployee)emp;
-                        e.BasicPay = e.BasicPay * 1.1;
-                }
-            }
+            // Increase basic pay by 10%
+            IncreaseBasicPay();
         }
     }
 }
