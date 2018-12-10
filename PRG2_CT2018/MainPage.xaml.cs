@@ -22,13 +22,12 @@ namespace PRG2_CT2018
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        List<Employee> employeeList = new List<Employee>(); // outside of MainPage() to allow other methods to access
+        List<Employee> employeeList = new List<Employee>(); // outside of MainPage() to allow other methods to access (qns 7)
         public MainPage()
         {
             this.InitializeComponent();
 
             // Question 7
-
             Employee employee1 = new FullTimeEmployee(103, "John", 1500, 100);
             Employee employee2 = new PartTimeEmployee(101, "Mary", 50, 10);
             Employee employee3 = new SalesEmployee(102, "Apple", 1000, 50, 10000);
