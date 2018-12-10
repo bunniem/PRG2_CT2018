@@ -28,9 +28,9 @@ namespace PRG2_CT2018
             this.InitializeComponent();
 
             // Question 7
-            Employee employee1 = new FullTimeEmployee(103, "John", 1500, 100);
-            Employee employee2 = new PartTimeEmployee(101, "Mary", 50, 10);
-            Employee employee3 = new SalesEmployee(102, "Apple", 1000, 50, 10000);
+            Employee employee1 = new FullTimeEmployee(103, "John", 1500.0, 100.0);
+            Employee employee2 = new PartTimeEmployee(101, "Mary", 50.0, 10);
+            Employee employee3 = new SalesEmployee(102, "Apple", 1000.0, 50.0, 10000.0);
 
             employeeList.Add(employee1);
             employeeList.Add(employee2);
