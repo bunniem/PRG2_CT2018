@@ -44,7 +44,7 @@ namespace PRG2_CT2018
                 if (emp is FullTimeEmployee)
                 {
                     FullTimeEmployee e = (FullTimeEmployee) emp;
-                    e.BasicPay = e.BasicPay * 1.1;
+                    e.BasicPay *= 1.1;
                 }
             }
         }
