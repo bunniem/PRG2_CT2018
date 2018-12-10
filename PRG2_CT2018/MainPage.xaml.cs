@@ -22,9 +22,55 @@ namespace PRG2_CT2018
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        List<Employee> employeeList = new List<Employee>(); // outside of MainPage() to allow other methods to access
         public MainPage()
         {
             this.InitializeComponent();
+
+            // Question 7
+
+            Employee employee1 = new FullTimeEmployee(103, "John", 1500, 100);
+            Employee employee2 = new PartTimeEmployee(101, "Mary", 50, 10);
+            Employee employee3 = new SalesEmployee(102, "Apple", 1000, 50, 10000);
+
+            employeeList.Add(employee1);
+            employeeList.Add(employee2);
+            employeeList.Add(employee3);
+
+            // Increase basic pay by 10%
+            IncreaseBasicPay();
+        }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int id = Convert.ToInt32(idTxt.Text);
+            bool flag = false;
+            resultTxt.Text = "";
+
+            foreach(Employee emp in employeeList)
+            {
+                if(id == emp.Id)
+                {
+                    resultTxt.Text =  $"Name: {emp.Name}\nPay: {emp.CalculatePay()}";
+                    flag = true;
+                }
+            }
+            if (flag == false)
+            {
+                resultTxt.Text = "Id not found";
+            }
+        }
+
+        public void IncreaseBasicPay()
+        {
+            foreach(Employee emp in employeeList)
+            {
+                if(emp is FullTimeEmployee)
+                {
+                        FullTimeEmployee e = (FullTimeEmployee)emp;
+                        e.BasicPay = e.BasicPay * 1.1;
+                }
+            }
         }
     }
 }
